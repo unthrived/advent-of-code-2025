@@ -26,10 +26,7 @@ with open('data/day06.txt', "r") as file:
 n = len(data)
 m = len(data[0])
 col = 0
-sign = []
-for j in range(m):
-    if data[n-1][j] in '+*': 
-        sign.append(j)
+sign = [j for j in range(m) if data[n-1][j] in '+*']
 sign.append(m+1) # added a fake last sign so you know where to stop on the prev
 total_2 = 0
 for k in range(len(sign)-1):
