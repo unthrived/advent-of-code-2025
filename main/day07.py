@@ -30,13 +30,15 @@ for i in range(n-1):
                 nodes[i,j] = (i+1,j-1),(i+1,j+1)
             if data[i+1][j] == '|':
                 nodes[i,j] = (i+1,j)
-print(nodes)
+# print(nodes, '#')
 
 def n_timeline(node, nodes):
-    if node[0] == 14: return 1
-    elif len(node) == 3: # split universe
-        return n_timeline(nodes[node[1]], nodes) + n_timeline(nodes[node[2]], nodes)
+    # print(node, len(node), 'hi', node[0])
+    if node[0] == 140:
+        return 1
+    elif type(nodes[node][0]) != int: # split universe
+        return n_timeline(nodes[node][0], nodes) + n_timeline(nodes[node][1], nodes)
     else:
-        return n_timeline(nodes[node[1]], nodes)
+        return n_timeline(nodes[node], nodes)
     
-print(n_timeline(((2, 6), (2, 8)), nodes))
+print(n_timeline((1,70), nodes))
