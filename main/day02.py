@@ -30,27 +30,10 @@ for i in range(n):
         l = len(str(j))
         div = divisors(l)[:]
         for i in range(len(div)):
-            pattern = create_pattern(div[i], int(l/div[i]))
+            pattern = create_pattern(div[i], int(l/div[i])) # basically l/div is the #{repetitions}
             if j%pattern == 0 and j>9:
                 # print(j, pattern)
                 total+=j
                 break
             
 print(total)
-
-# bit ugly brute force solution for part 1
-
-# data = read_txt('data/day02.txt', numbers=False)
-# data = data[0].split(',')
-# n = len(data)
-# count = 0
-# for i in range(n):
-#     data[i] = data[i].split('-')
-# for i in range(n):
-#     for j in range(int(data[i][0]), int(data[i][1])+1):
-#         s = str(j)
-#         d = len(s)
-#         if d%2 == 0 and s[0:int(d/2)] == s[int(d/2):d]:
-#             count += j
-# print(count) 
-
