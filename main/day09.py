@@ -27,7 +27,9 @@ for i in range(n-1):
         print(i, j, area(data[i], data[j]))
 print(highest)
 
-# p2 # TOOK 3 HOURS TO RUN :) could be optimized but busy these days
+# p2 
+# TOOK 3 HOURS TO RUN :) could be optimized but busy these days
+# !!! INPUT MODIFIED (copy last row and paste on first row)
 green = []
 for i in range(n-1):
     if i%2 == 0:
@@ -55,5 +57,3 @@ for i in range(n-1):
                 highest = area(data[i], data[j])
                 print(i, j, data[i], data[j], area(data[i], data[j]))
 print(highest)
-
-        # if area(data[i], data[j]) > highest: highest = area(data[i], data[j])
