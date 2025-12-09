@@ -20,25 +20,21 @@ for i in range(n):
             if data[i-1][j] == '|':
                 data[i][j] = '|'
 
-# part two not done yet
-nodes = {}
+# part 2
+# recursion takes forever, solution was just summing bottom up
+for j in range(m):
+    if data[n-1][j] == '|': 
+        data[n-1][j] = 1
 
-for i in range(n-1):
+for i in reversed(range(n-1)):
     for j in range(m):
         if data[i][j] == '|':
             if data[i+1][j] == '^':
-                nodes[i,j] = (i+1,j-1),(i+1,j+1)
-            if data[i+1][j] == '|':
-                nodes[i,j] = (i+1,j)
-# print(nodes, '#')
+                data[i][j] = data[i+1][j-1] + data[i+1][j+1]
+            elif data[i+1][j] == '.':
+                pass
+            else:
+                data[i][j] = data[i+1][j]
 
-def n_timeline(node, nodes):
-    # print(node, len(node), 'hi', node[0])
-    if node[0] == 140:
-        return 1
-    elif type(nodes[node][0]) != int: # split universe
-        return n_timeline(nodes[node][0], nodes) + n_timeline(nodes[node][1], nodes)
-    else:
-        return n_timeline(nodes[node], nodes)
-    
-print(n_timeline((1,70), nodes))
+print(data[1])
+     
