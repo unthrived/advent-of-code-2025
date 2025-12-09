@@ -12,7 +12,7 @@ Nothing too fancy.
 ### Day 4
 Directions and padding.
 
-### Day 5
+### Day 5
 I hate intervals.
 
 ### Day 6
