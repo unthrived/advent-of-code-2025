@@ -17,7 +17,7 @@ for i in range(n-1):
 pairs.sort(key=lambda x: x[0]) # sorting pairs is fine because we preserve i j
 print(pairs[0])
 
-s = [{}]
+s = [{}] # needed add a empty element in pos 0 because of 0 == False
 for k in range(20000):
     found_i = False
     found_j = False
