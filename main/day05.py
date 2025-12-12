@@ -59,5 +59,4 @@ for i in range(len(active)):
         total += 1
 print(active)
 print(data)
-print(total) # 353716783056988 low
-             # 353716783056994
+print(total)

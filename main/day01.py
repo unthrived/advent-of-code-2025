@@ -24,7 +24,7 @@ for i, row in enumerate(data):
             dial = dial-100
             count += 1
     else:
-        if dial == 0: count -= 1 # when the dial starts at 0 and goes left...
+        if dial == 0: count -= 1 # when the dial starts at 0 and goes left and ends at 0 we overcount it by one
         dial = dial - int(data[i][1:])
         while (dial < 0):
             dial = dial+100

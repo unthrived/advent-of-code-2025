@@ -1,9 +1,5 @@
 from utils import read_txt
 from functools import lru_cache
-raw = read_txt('data/day11.txt', numbers=False)
-n = len(raw)
-
-from functools import lru_cache
 
 def find_next(start, data, end):
     @lru_cache(None)
@@ -22,6 +18,9 @@ def find_next(start, data, end):
         return total
     return dfs(start)
 
+raw = read_txt('data/day11.txt', numbers=False)
+n = len(raw)
+
 for i in range(n):
     raw[i] = raw[i].split(': ')
 for i in range(n):
@@ -29,8 +28,6 @@ for i in range(n):
 data = dict()
 for i in range(n):
     data[raw[i][0]] = raw[i][1]
-
-# print(find_next('fft', data, 'out'))
 
 # svr fft dac out
 print(

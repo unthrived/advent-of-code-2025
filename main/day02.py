@@ -30,7 +30,7 @@ for i in range(n):
         l = len(str(j))
         div = divisors(l)[:]
         for i in range(len(div)):
-            pattern = create_pattern(div[i], int(l/div[i])) # basically l/div is the #{repetitions}
+            pattern = create_pattern(div[i], int(l/div[i])) # basically l/div is the #{repetitions} (part 1 is changing div[i] for 2)
             if j%pattern == 0 and j>9:
                 # print(j, pattern)
                 total+=j
