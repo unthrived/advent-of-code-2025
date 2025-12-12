@@ -26,3 +26,13 @@ This took a while, bit stubborn for not calculating all distances beforehand. Af
 
 ### Day 9
 Key was to check if the edges are contained in the rectangle. Code has too high complexity $O(n^3)$ and took 3 hours to run. I was very lucky that the result was correct.
+
+### Day 10
+(Part 2) Recursive solution is implemented (works on example) but complexity is too high. Linear algebra's approach is tough, didn't do that much linalg even in my math bachelors.
+
+Will try to solve it one day, there are some stuff in scipy that might help.
+
+### Day 11
+Simple dfs + lru_cache, since no input was designed to have no loops.
+
+### Day 12
