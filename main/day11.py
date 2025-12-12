@@ -1,21 +1,26 @@
 from utils import read_txt
+from functools import lru_cache
 raw = read_txt('data/day11.txt', numbers=False)
 n = len(raw)
 
-def find_next(s, data, end):
-    # print(s)
-    if end == 'out':
-        if s == 'out': return 1
-    else:
-        if s == 'out': return 0
-        if s == end: return 1
-    total = 0
-    for i in range(len(data[s])):
-        total += find_next(data[s][i], data, end)
-        if data[s][i] in data['dac']:
-            print(data[s][i], total)
-    return total
+from functools import lru_cache
 
+def find_next(start, data, end):
+    @lru_cache(None)
+    def dfs(s):
+        if end == 'out':
+            if s == 'out':
+                return 1
+        else:
+            if s == 'out':
+                return 0
+            if s == end:
+                return 1
+        total = 0
+        for nxt in data[s]:
+            total += dfs(nxt)
+        return total
+    return dfs(start)
 
 for i in range(n):
     raw[i] = raw[i].split(': ')
@@ -29,11 +34,10 @@ for i in range(n):
 
 # svr fft dac out
 print(
-    #find_next('svr', data, 'fft'),
-    #find_next('fft', data, 'dac'), 
+    find_next('svr', data, 'fft')*
+    find_next('fft', data, 'dac')*
     find_next('dac', data, 'out')
     )
-
 print(
     # find_next('svr', data, 'dac'),
     # find_next('dac', data, 'fft'), # theres none going from dac to fft
